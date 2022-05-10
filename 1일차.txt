@@ -1,0 +1,8 @@
+git-scm - 다운로드
+oracle - 제품 java - oracle JDK - java 8ver 기본 설치
+eclipse.org - 다운로드 - 다운로드 패키지- eclipse IDE for Enterprise Java and web Developers 설치
+github.com
+
+이클립스 java_workspace 파일 만들기
+
+git bash에서는 리눅스 명령어 사용 가능

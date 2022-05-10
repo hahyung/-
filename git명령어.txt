@@ -1,0 +1,57 @@
+git		:  git의 명령어를 모두 보여줌
+
+git init		: .git 하위 디렉토리 생성
+
+git status		:  현재의 상태를 보여줌
+
+git add 옵션 파일명	: 해당 파일을 커밋에 올림
+
+	옵션
+	
+	--all	: 모든 파일을 add
+
+	
+git commit -m "메세지" 파일명 or 디렉토리	: 커밋 생성(변경사항 저장)
+	
+	*파일명을 쓰지 않을 경우 add되어있는 모든 파일 커밋 생성
+
+
+git commit -am "메세지"			: 수정 후 커밋
+	
+	*파일 내용을 수정했다면 다시 add 와 commit을 해야 함
+
+
+git rm --cached 파일명 			: 해당 파일 또는 디렉토리를 커밋 생성에서 제외
+
+	*디렉토리를 제외하는 경우 git rm --cached 디렉토리/ -r
+
+
+commit을 하게 되면 처음에 글로벌 유저 이름과 이메일 설정 필요
+git config --global user.name 이름		: 사용자 이름 설정
+
+git config --global user.email 이메일		: 사용자 이메일 설정
+
+git log 옵션				: 커밋 내역 확인 (기록 표시) 
+
+	옵션
+	
+	--oneline	: 한 커밋씩 출력
+
+
+git remote add 별칭 github주소		: github에 올릴 주소를 별칭으로 등록
+	
+	* 별칭은 보편적으로 origin을 쓴다
+
+
+git remote -v				: 연결주소 확인
+
+git remote rm 별칭				: 연결 주소 삭제
+
+git push -u origin master			: 업로드
+
+	*403에러가 뜬다면 자격 증명 검색해서 windows 자격증명에서 git 제거 하면 됨
+
+
+touch .gitignore				: 파일 확장명 없이 파일 생성
+	
+	*.gitignore 파일 안에 제외하고 싶은 파일이나 디렉토리를 적는다.
