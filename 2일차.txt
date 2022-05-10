@@ -68,3 +68,6 @@ git add –all을 진행하고 commit를 하여 push까지 진행하시오.
 ( .gitignore 사용하며 해당파일 과 test02 파일 역시 github에 올리면 안된다. )
 
 
+ * 폴더와 파일 동시에 생성할 때
+ touch a/a.txt b/b.txt c/c.txt
+
