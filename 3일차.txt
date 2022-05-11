@@ -1,0 +1,38 @@
+git branch		: 현재 존재하는 branch 확인
+
+git branch	이름	: 브런치 생성
+
+git branch -d 이름	: 브런치 삭제
+
+git checkout 브런치이름	: 해당 브런치로 변경
+
+*마스터에서 커밋이 되어 있는 것들은 브런치에서 똑같이 생성된다
+
+git merge testbranch	: 다른 브런치에 있는 것을 합칠 때
+	* 커밋 되어있는 것 까지 똑같이 작업되어있다
+	
+git checkout -p testbranch test.txt
+	* merge 할 때 모든 작업을 가지고 오기때문에 아직 완료가 되지 않은 작업물까지 같이 올 수 있음
+	* 특정한 작업물만 가지고 오고 싶을 때 사용
+실습
+
+testbranch02 생성 후
+aaa.txt bbb.txt 생성 후 마스터와 merge 후 github에 올려주세요
+
+마스터와 다른 브런치에서 공통적으로 사용 되는 파일은 충돌이 생길 수 있다
+
+
+git reset --hard 돌아갈 로그기록(6bae134)
+
+git revert 돌아갈 로그의 전 로그기록
+
+reset과 revert 차이점
+reset은 log자체가 사라짐 
+revert는 이전 log 유지 되돌아간 log가 기록됨
+
+* revert 두단계 돌릴 때 문제가 됨 해당 파일에서 직접 삭제후 commit -am
+
+내가 가지고 있는 것 보다 깃허브가 더 많이 가지고 있으면 push가 되지 않는다
+(혼자 사용하는 경우에는 git push -uf 별칭 master 하면 강제 푸쉬가능, 여러 사용자가 있는 경우에는 강제로 push는 될 수 있으면 안하는게 좋다)
+
+git pull 	: 깃허브에 있는 것을 나한테 merge 한다
