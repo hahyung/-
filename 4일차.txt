@@ -1,0 +1,54 @@
+clone
+깃허브와 연결되어있지 않는 상태에서 내려받는 것 새로운 곳에서 내려받겠다 할 때 사용하면 됨 그 후에는 pull/push
+
+git clone 깃허브 레파지토리 주소
+: 해당 주소에 모든것 내려받기
+
+실습
+1. gtihub test06 레포지토리 생성
+   masterdir 디렉토리와 testdir 디렉토리 생성 후 masterdir 폴더에서 먼저 작업을 진행한다.
+   마스터 브런치에서 기본 프로젝트 파일(project.txt) 생성 후 github에 push진행
+   project.txt 내용 ->
+   a-branch에서는 글쓰기, 삭제 기능 구현
+   b-branch에서는 답글, 삭제 기능 구현
+
+2. a-branch에서는 글쓰기 기능과 글삭제 기능 구현. b-branch에서는 답글과 삭제 기능
+   (a-bracnh => write 폴더 생성 후 write.txt, del.txt 저장, b-branch => reply 폴더 생성 후 reply.txt, del.txt 저장)
+   master에서 모든 내용을 github에 push하자
+
+3. testdir에서 github에 있는 내용을 clone하자. 이 후 해당 project.txt에 '공통기능 추가' 라는 글을 넣자
+
+4. masterdir에서 해당 내용 reset --hard 로 프로젝트(제일 처음)까지 돌리고 강제 push 진행하자
+
+5. testdir 과 masterdir 의 값을 동일하게 만드시오. (log 확인 시 동일한 log가 나오면 성공. testdir의 로그가 기준이 된다)
+    마지막으로 a-branch, b-branch를  삭제하시오
+
+git branch -r
+
+gir branch -a
+
+github 브런치
+
+git push origin a-branch : 원격지에서 a-branch 생성
+
+git push origin --delete a-branch : 원격지에서 a-branch 삭제
+
+git push -u origin a-branch : a-branch에 올리겠다
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
