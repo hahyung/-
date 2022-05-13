@@ -1,0 +1,93 @@
+JAVA
+
+eclipse
+
+ctrl+n	: 새 프로젝트
+F2	: 파일명 변경
+ctrl+F11	: 저장실행
+ctrl+방향키아래 :
+//	: 한줄 주석
+/* ~ */	: ~범위 주석
+
+프로젝트를 만들고 최초로 실행을 하고자 한다면 main을 작성해야한다
+	public static void main(String[] args) {
+		System.out.println(); //메소드
+		/*
+		System.out.println("안녕하세요(엔터)"); 
+		System.out.println("반갑습니다(엔터)"); 
+		*/
+		
+		System.out.print("안녕하세요"); 
+		System.out.print("반갑습니다"); 	
+	}
+
+//method 는 기능이라고 표현한다.
+//println는 마지막에 엔터가 자동으로 적용된다.
+
+Module -> 체크상태
+
+class
+
+// 첫번째 글자는 대문자로
+// 레파지토리와 프로젝트 이름을 동일하게 해야하는것이 좋다
+// .settings 과 bin 폴더는 .gitignore에 숨겨야 문제가 되지 ㅇ낳는다
+// bin 이란 컴퓨터가 알아볼 수 있는 방식으로 쓰여져 있는것
+
+// \n : 엔터와 비슷, \t : 탭크기만큼 왼쪽으로 이동
+// \" : "(큰따옴표 표현), \\ : (역슬러시 하나 표현)
+
+
+
+해당 프로젝트 폴더에서 git init
+vim .gitignore에 숨겨야할 폴더/파일 작성
+원격지 연결
+commit 후 push 
+
+Java - 변수
+
+자료형
+ bit 	: 2진수의 한자리가 1bit
+ 1byte	: 8bit
+ type	크기(byte)	범위
+ ----------------------------------------------
+ byte	1		-128 ~ 127
+ short	2		-32768 ~ 32767
+ char	2		0 ~ 65535	
+ int	4
+ float	4
+ double	4
+ void	값을 갖지 않는 특수한 데이터 형
+
+
+	public static void main(String[] args) {
+		int age = 25; // int : 정수(음, 양수) 표현
+		double weight = 55.0; // 실수 표현
+		double height = 160.0; 
+		System.out.println("나의 나이는 " +age+ "살");
+		System.out.println("나의 키는 " +height+ "cm");
+		System.out.println("나의 몸무게는 " +weight+ "kg");
+		// char문자 하나 표현할 때 사용
+		// 문자 하나는 작은 따옴표로 표현해야 한다.
+		char ch = 'A';
+		System.out.println("변경 전 : "+ch);
+		ch = 'B';
+		System.out.println("변경 후 : "+ch);
+		
+		System.out.println( "연산 : "+ (ch+32) ); 
+		System.out.println( "연산 : "+ (char)(ch+32) ); //98이라는 숫자를 문자로 표현
+		System.out.println( "연산 : "+ (double)(ch+32) );
+		
+		System.out.println( 1.111 );
+		System.out.println( (int)12.111 );
+		
+		String n = "홍길동";
+		System.out.println(n+"님 안녕하세요");
+		n = "김개똥";
+		System.out.println("이름 변경 : "+n);
+		
+	}
+
+
+
+
+
