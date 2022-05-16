@@ -1,0 +1,171 @@
+[문제]
+
+Q1.
+두 정수를 입력 받아 합이 홀수인지 짝수인지 구분해 출력하기
+
+Q2.
+시험점수 별로 등급 나누기 
+90이상 A, 80이상 B, 70이상 C, 60이상 D, 59이하 F
+
+Q3.
+두 정수 a,b가 입력받아서 a와 b를 비교하는 프로그램 작성
+
+a가 b보다 큰 경우에는 > 출력
+a가 b보다 작은 경우에는 < 출력
+a와 b가 같은 경우에는 == 출력
+
+Q4.
+나이를 입력 받아 버스 요금 안내해주기 
+20살 이상 : 1350원 
+8~19살 : 1100원 
+0~7살 : 700원
+
+Q5. 
+일한 시간을 입력 받아 하루 일당 계산하기 
+시급 : 9160원 
+8시간 이상 근무시 초과수당은 시급의 1.5배 
+
+Q6.
+국수영 각 과목의 점수를 int형 타입의 변수 3개를 선언하고 입력받기.
+모두 80점 이상이면서 총 점수가 260점이상이면 "합격"를 출력하고 한 과목이라도 80점 미만인 경우, "불합격"를 출력하기
+
+
+
+
+
+[풀이]
+
+A1.
+
+		Scanner input = new Scanner(System.in);
+		int num1, num2, sum;
+		
+		System.out.print("두 정수를 입력하세요 : ");
+		num1 = input.nextInt();
+		num2 = input.nextInt();
+		
+		sum = num1+num2;
+		
+		if(sum%2==0) {
+			System.out.println("짝수");
+		}
+		if(sum%2!=0) {
+			System.out.println("홀수");
+		}
+
+
+A2.
+
+		Scanner input = new Scanner(System.in);
+
+		int score;
+		System.out.print("시험점수를 입력하시오 : ");
+		score = input.nextInt();
+		
+		if(score>90) {
+			System.out.println("A");
+		}
+		if(89>=score && score>80) {
+			System.out.println("B");
+		}
+		if(79>=score && score>70) {
+			System.out.println("C");
+		}
+		if(69>=score && score>60) {
+			System.out.println("D");
+		}
+		if(score<=59) {
+			System.out.println("F");
+		}
+			
+		
+
+A3.
+	
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("숫자를 입력하시오");
+		
+		int a, b;
+		a = input.nextInt();
+		b = input.nextInt();
+		
+		if(a > b) {
+			System.out.println("a > b");
+		}
+		
+		if(a < b) {
+			System.out.println("a < b");
+		}
+		
+		if(a == b) {
+			System.out.println("a == b");
+		}
+		
+		
+
+
+A4.
+
+
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("나이를 입력하세요");
+		
+		int a;
+		a = input.nextInt();
+		
+		if (a >= 20) {
+			System.out.println("버스요금은 1350원 입니다.");
+		}
+		
+		if (a >= 8 && a <= 19) {
+			System.out.println("버스요금은 1100원 입니다.");
+		}
+		
+		if (a >= 0 && a <= 7) {
+			System.out.println("버스요금은 700원 입니다.");
+		}
+
+
+
+A5. 
+
+
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("일한 시간을 입력하세요");
+		
+		int time = input.nextInt();
+		int pay = 9160;
+		
+		if(time > 8) {
+			System.out.println("하루 일당은 " + ((pay*8) + ((time-8)*13740)) + "원 입니다.");
+		}
+		
+		if(time < 8) {
+			System.out.println("하루 일당은 " + (pay*time) + "원 입니다.");
+		}
+
+
+A6.
+		Scanner input = new Scanner(System.in);
+
+		int kScore, mScore, eScore, sum;
+		
+		System.out.print("국어 점수 : ");
+		kScore = input.nextInt();
+		System.out.print("수학 점수 : ");
+		mScore = input.nextInt();
+		System.out.print("영어 점수 : ");
+		eScore = input.nextInt();
+		
+		sum = kScore+mScore+eScore;
+		if (kScore<80 || mScore<80 || eScore<80 || sum<260) {
+			System.out.println("불합격");
+		}
+		if (kScore>=80 && mScore>=80 && eScore>=80 && sum>=260) {
+			System.out.println("합격");
+		}
+
+		
