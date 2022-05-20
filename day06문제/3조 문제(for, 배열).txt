@@ -1,0 +1,282 @@
+사용자에게 정수의 개수를 입력받고
+입력받은 개수만큼 정수를 입력받고
+입력받은 정수들의 합 구하기
+
+Scanner input=new Scanner(System.in);
+int num2=0;		
+System.out.print("정수 개수 입력 : ");
+int cnt=input.nextInt();
+int arr[]=new int[cnt];
+for (int i=0;i<cnt;i++) {
+	System.out.print("정수 입력 : ");
+	arr[i]=input.nextInt();
+}
+for (int num : arr) {
+	num2+=num;
+}
+System.out.println("정수의 합 : "+num2);
+
+
+
+
+
+최대 10명이 정원인 반에 학생을 등록하는 프로그램
+1. 학생등록
+2. 학생조회
+3. 전체조회
+3. 종료
+
+1번을 입력시 학생의 번호와 이름을 입력받아 저장된다
+이미 저장된 번호 입력시 이미 등록된 번호라는 문구 출력
+
+2번을 입력시 저장된 번호 입력시 번호의 학생이름 출력
+저장되지 않은 번호 입력시 등록되지 않은 번호라는 문구 출력
+
+3번 입력시 등록된 모든 학생번호와 이름 출력
+
+4.번 입력시 종료
+
+다른번호 입력시 잘못된 입력 문구 출력
+
+
+
+
+Scanner input=new Scanner(System.in);
+int a=0;
+String arr[]=new String[10];
+	
+while(a==0) {
+	System.out.println("1. 학생 등록");
+	System.out.println("2. 학생 조회");
+	System.out.println("3. 전체 조회");
+	System.out.println("4. 종료");
+	System.out.print("입력 : ");
+	int cho=input.nextInt();
+	switch(cho) {
+	case 1:
+		System.out.print("등록할 번호 입력 : ");
+		int num=input.nextInt();
+		if (arr[num-1]!=null) {
+			System.out.println("이미 등록된 번호입니다.");
+			System.out.println();
+			continue;
+		}
+		System.out.print("학생 이름 입력 : ");
+		arr[num-1]=input.next();
+		System.out.println();
+		break;
+	case 2:
+		System.out.print("조회할 학생 번호 입력 : ");
+		int su=input.nextInt();
+		if(arr[su-1]==null) {
+			System.out.println("등록되지 않은 번호입니다.");
+			System.out.println();
+			continue;
+		}
+		System.out.println(su+"번의 학생 이름 : "+arr[su-1]);
+		System.out.println();
+		break;
+	case 3:
+		for(int i=0;i<10;i++) {
+			if(arr[i]!=null) {
+				System.out.println((i+1)+"번 "+arr[i]);
+			}
+		}
+		System.out.println();
+		break;
+	case 4:
+		a=1;
+		break;
+	default:
+		System.out.println("잘못된 입력");
+		System.out.println();
+	}
+
+				break;
+			default:
+				System.out.println("잘못된 입력");
+				System.out.println();
+			}
+
+
+1.줄의 갯수를 입력받은후 다중 for문을 이용해서
+  *을 콘솔에 피라미드 형태로 출력하시오
+ex) 줄의 갯수 :4   
+   *
+  ***
+ *****
+*******
+
+===============================풀이=================================
+public static void main(String[] args) {
+		// 
+		Scanner sc = new Scanner(System.in);
+		System.out.print("줄의 갯수 : ");
+		int result = sc.nextInt();
+		
+		for(int i = 0; i < result; i++) {
+			
+			for(int j = 1; j <result - i; j++) {
+				System.out.print(" ");
+			}
+			
+			for(int k = 0; k <i*2+1; k++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+			
+	
+}
+
+2.주사위 두개를 던져 눈의 합이 6일 경우를 2중 for문을 이용해서 출력하시오
+ex)
+   (1,5)
+   (2,4)
+     .
+     .
+     .
+   (5,1)
+
+===============================풀이=================================
+public static void main(String[] args) {
+		
+		for(int num1 =1; num1 <7; num1++) {
+			for(int num2 =1; num2 <7; num2++) {
+				if(num1+num2 ==6) {
+					System.out.println("("+ num1 +"," + num2 +")");
+				}
+			}
+		}
+		System.out.println();
+		
+}
+
+
+		//국어, 영어, 수학, 전공1, 전공2, 전공3 의 점수를 차례대로 입력받고 점수가 100점이 넘어가거나 0점 밑으로 입력 될 경우 해당점수 재입력.
+		//과목 및 점수는 배열을 활용, 과목 >> String[] subject = new String[]{"국어", "영어", "수학", "전공1", "전공2", "전공3"};
+		//60점 미만 F, 60점 이상 D, 70점 이상 C, 80점 이상 B, 90점 이상 A로 출력. 단, 전공3 의 경우 60점 이상일 경우 P 로 출력
+		//등급의 경우 배열을 활용하지않아도 상관없음.
+		//Ex) 국어 점수: 70/A	영어 점수: 80/B 수학 : 59/F 전공1 : 100/A 전공2 : 98/A 전공3 : 60/P
+		
+		Scanner sc = new Scanner(System.in);
+		
+		String[] subject = new String[]{"국어", "영어", "수학", "전공1", "전공2", "전공3"};
+		int[] score = new int[subject.length];
+		char[] rank = new char[subject.length];
+		int a;
+		for(int i=0 ; i<subject.length; i++) {
+			System.out.print(subject[i]+" 점수 : ");
+			score[i] = sc.nextInt();
+			if(score[i]>100 || score[i]<0) {
+				System.out.println(subject[i]+" 점수를 잘못입력하셨습니다. 다시 입력해주세요");
+				System.out.print(subject[i]+" 점수 : ");
+				score[i] = sc.nextInt();
+			}else {
+				if(subject[i].equals("전공3")) {
+					if(score[i]>=60) {
+						rank[i] = 'P';
+					}
+				}else {
+					if(score[i]>=90) {
+						rank[i] = 'A';
+					}else if(score[i]>=80) {
+						rank[i] = 'B';
+					}else if(score[i]>=70) {
+						rank[i] = 'C';
+					}else if(score[i]>=60) {
+						rank[i] = 'D';
+					}else{
+						rank[i] = 'F';
+					}
+				}
+			}
+		}
+		for(int i=0 ; i<subject.length; i++) {
+			System.out.print(subject[i]+" 점수 : "+score[i]+"/"+rank[i]);
+		}
+		
+		
+		//아이디 생성, 비밀번호 찾기, 로그인, 종료 기능 구현
+		//아이디 생성 시 중복된 아이디가 있을 경우 중복된 아이디가 있습니다 출력 후 재시도.
+		//비밀번호 찾기 시 아이디 입력 후 아이디가 일치할 경우 비밀번호 출력 일치하는 아이디가 없을 경우 일치하는 아이디가 없습니다. 출력
+		//로그인 시 아이디가 일치할 경우 비밀번호 입력, 아이디가 일치하지 않을 경우 가입되어 있지 않은 아이디입니다. 출력
+		
+		
+		Scanner fid = new Scanner(System.in);
+		String[] id = new String[5];
+		String[] pwd = new String[id.length];
+		String ckid="", ckpwd = "";
+		int status;
+		id[0]="admin";
+		pwd[0]="admin";
+		while(true) {
+			System.out.println("1. 아이디 생성 // 2. 비밀번호 찾기 // 3. 로그인 // 0. 종료");
+			status = fid.nextInt();
+			if(status == 1) {
+				for(int i = 0; i<id.length; i++) {
+					if(id[i]==null) {
+						System.out.print("생성할 아이디 : ");
+						id[i] = fid.next();
+						for(int j = 0; j<id.length; j++) {
+							if(id[i].equals(id[j])) {
+								System.out.println("중복된 아이디가 있습니다.");
+								System.out.print("생성할 아이디 : ");
+								id[i] = fid.next();	
+								break;
+							}else {
+								break;
+							}
+						}
+						System.out.print("비밀번호 : ");
+						pwd[i] = fid.next();
+						
+						System.out.println("아이디가 생성되었습니다.");
+						break;
+					}
+				}
+			}else if(status == 2) {
+				System.out.print("아이디를 입력해 주세요 : ");
+				ckid = fid.next();
+				for(int i = 0; i<id.length; i++) {
+					if(ckid.equals(id[i])) {
+						System.out.println("비밀번호는 "+pwd[i]+" 입니다.");
+						break;
+					}
+				}
+				for(int i = 0; i<id.length; i++) {
+					if(!ckid.equals(id[i])) {
+						System.out.println("일치하는 아이디가 없습니다.");
+						break;
+					}
+				}
+			}else if(status == 3) {
+				System.out.print("아이디 : ");
+				ckid = fid.next();
+				for(int i = 0; i<id.length; i++) {
+					if(ckid.equals(id[i])) {
+						System.out.print("비밀번호 : ");
+						ckpwd = fid.next();
+						if(ckpwd.equals(pwd[i])) {
+							System.out.println("로그인 성공");
+							status = 0;
+							break;
+						}else {
+							System.out.println("로그인 실패");
+							break;
+						}
+					}
+				}
+				for(int i = 0; i<id.length; i++) {
+					if(!ckid.equals(id[i])) {
+						System.out.println("가입되어 있지 않은 아이디입니다.");
+						break;
+					}
+				}
+				
+			}else if(status == 0){
+				break;
+			}else {
+				System.out.println("잘못된 선택");
+			}
+		}

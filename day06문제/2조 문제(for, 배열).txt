@@ -1,0 +1,210 @@
+﻿1-1)
+Q)
+피라미드 층 수를 입력받아 입력받은 층 수만큼 피라미드(△) 모양으로 *을 찍어 출력하시오.
+
+
+1-2)
+Q)
+학생 수를 입력하고 학생수 만큼 이름과 점수를 입력받아 학생 이름과 점수 명단을 출력하고
+70점 미만은 재시험대상이라고 이름과 점수를 출력해주고 30이하는 탈락과 함께 이름과 점수 출력
+
+
+2-1)
+Q)
+다음은 거스름돈을 몇 개의 동전으로 지불할 수 있는지를 계산하는 문제이다. 
+변수 money의 금액을 동전으로 바꾸었을 때 각각 몇 개의 동전이 필요한지 계산해서 출력하라. 
+단, 가능한 한 적은 수의 동전으로 거슬러 주어야한다. (1)에 알맞은 코드를 넣어서 프로그램을 완성하시오.
+
+
+2-2)
+Q)
+입력한 금액만큼 500원, 100원, 50원, 10원 짜리 동전으로 교환할수있도록 출력하기
+
+
+3-1)
+Q)
+최대 100개까지의 정수를 차례로 입력받다가 0이 입력되면 입력을 중단하고 짝수 번째에 입력된 정수를 모두 출력하는 프로그램
+
+3-2)
+Q)
+10개의 정수를 입력받아 가장 큰 수를 출력
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+================================================================================
+1-1)
+Q)
+피라미드 층 수를 입력받아 입력받은 층 수만큼 피라미드(△) 모양으로 *을 찍어 출력하시오.
+
+
+A)
+Scanner sc = new Scanner(System.in);
+		System.out.print("층을 입력하세요 : ");
+		int num = sc.nextInt();
+		
+		for (int i=0; i<num ; i++) {
+		    for (int j=1; j<num-i; j++) {
+		    	System.out.print(" ");
+		    }
+		    for (int j=0; j<i*2+1; j++) {
+		    	System.out.print("*");
+		    }
+		    System.out.println();
+		}
+
+
+================================================================================
+1-2)
+Q)
+학생 수를 입력하고 학생수 만큼 이름과 점수를 입력받아 학생 이름과 점수 명단을 출력하고
+70점 미만은 재시험대상이라고 이름과 점수를 출력해주고 30이하는 탈락과 함께 이름과 점수 출력
+
+
+A)canner sc = new Scanner(System.in);
+		int sNum;
+		
+		System.out.print("학생 수를 입력하세요 : ");
+		sNum = sc.nextInt();
+		
+		String[] sArr = new String[sNum];
+		int[] iArr = new int[sNum];
+		int[] riArr = new int[sNum];
+		String[] rsArr = new String[sNum];
+		
+		for(int i=0; i<sNum; i++) {
+			System.out.print((i+1) + "번째 학생 이름을 입력해주세요 : ");
+			sArr[i] = sc.next();
+			sc.nextLine();
+			
+			System.out.print((i+1) + "번째 학생의 점수를 입력해주세요 : ");
+			iArr[i] = sc.nextInt();
+		}
+		
+		System.out.println();
+		for(int i=0; i<sNum; i++) {
+			System.out.println("학생 이름 : " + sArr[i] + "\t점수 : " + iArr[i]);
+		}
+		System.out.println();
+		
+		for(int i=0; i<sNum; i++) {
+			if(iArr[i] < 70 && iArr[i] > 30) {
+				System.out.println("재시험 대상자 입니다.");
+				System.out.println("학생 이름 : " + sArr[i] + "\t점수 : " + iArr[i]);
+			}else if(iArr[i] <= 30){
+				System.out.println("탈락 입니다.");
+				System.out.println("학생 이름 : " + sArr[i] + "\t점수 : " + iArr[i]);
+			}
+		}
+
+
+================================================================================
+2-1)
+Q)
+다음은 거스름돈을 몇 개의 동전으로 지불할 수 있는지를 계산하는 문제이다. 
+변수 money의 금액을 동전으로 바꾸었을 때 각각 몇 개의 동전이 필요한지 계산해서 출력하라. 
+단, 가능한 한 적은 수의 동전으로 거슬러 주어야한다. (1)에 알맞은 코드를 넣어서 프로그램을 완성하시오.
+
+
+A)
+   int[] coinUnit = { 500, 100, 50, 10 };
+   
+   int money = 2680;
+   
+   System.out.println("money=" + money);
+   
+   for (int i = 0; i < coinUnit.length; i++) {
+      
+   int cnt = money / coinUnit[i];
+
+   System.out.println(coinUnit[i]+"원 : "+cnt);
+
+   money = money - cnt * coinUnit[i];
+}
+
+
+================================================================================
+2-2)
+Q)
+입력한 금액만큼 500원, 100원, 50원, 10원 짜리 동전으로 교환할수있도록 출력하기
+
+
+A)
+ Scanner scan = new Scanner(System.in);
+ 
+        int money = 0;
+ 
+        System.out.print("교환할 금액: ");
+        money = scan.nextInt();
+ 
+        int coin500 = (int) (money / 500);
+        System.out.println("500원: " + coin500 + "개");
+        money = money - coin500 * 500;
+ 
+        int coin100 = (int) (money / 100);
+        System.out.println("100원: " + coin100 + "개");
+        money = money - coin100 * 100;
+ 
+        int coin50 = (int) (money / 50);
+        System.out.println("50원: " + coin50 + "개");
+        money = money - coin50 * 50;
+ 
+        int coin10 = (int) (money / 10);
+        System.out.println("10원: " + coin10 + "개");
+        money = money - coin10 * 10;
+ 
+        System.out.print("바꾸지 못한 금액: " + money + "원");
+
+
+================================================================================
+3-1)
+Q)
+최대 100개까지의 정수를 차례로 입력받다가 0이 입력되면 입력을 중단하고 짝수 번째에 입력된 정수를 모두 출력하는 프로그램
+
+
+A)
+Scanner input = new Scanner(System.in);
+   int[] arr = new int[100];
+   int i, cnt = 0;
+   for ( i=0; i<arr.length; i++ ) {
+      arr[i] = input.nextInt();
+      if (arr[i] == 0) {
+         break;}
+      cnt++;
+      }
+   for(i=1 ; i<cnt ; i+=2)
+   {
+      System.out.print(arr[i]+" ");
+   }
+
+
+================================================================================
+3-2)
+Q)
+10개의 정수를 입력받아 가장 큰 수를 출력
+
+
+A)
+System.out.print("수 10개 입력 : ");
+   int[] arr = new int[10];
+   int i, max;
+   for(i=0;i<arr.length;i++) {
+      arr[i]=input.nextInt();
+   }
+   max = arr[0];
+   for(i=1;i<arr.length;i++) {
+      if(max<arr[i]) {
+         max = arr[i];
+      }
+   }
+   System.out.print(max);
